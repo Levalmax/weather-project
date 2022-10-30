@@ -1,4 +1,4 @@
 import requests
 
 res = requests.get("https://ya.ru")
-print(res)
+print(res.status_code)
