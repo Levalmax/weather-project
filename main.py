@@ -6,3 +6,4 @@ print("test")
 #work
 print("work")
 print("test")
+print("last changes")
