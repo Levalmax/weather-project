@@ -7,3 +7,12 @@ print("test")
 print("work")
 print("test")
 print("last changes")
+
+def func(n):
+    print("hi")
+
+class MyCar():
+    def __init__(self):
+        print("test")
+
+one = MyCar()
