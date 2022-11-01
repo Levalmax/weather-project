@@ -26,15 +26,15 @@ res = requests.get(openMeteo) # получаем нужные данные с op
 #}
     
 
-      #минимальная температура
+      
 
 def weatherShow():   
-    json = res.json() #создаем переменную с данными в формате json
+    json = res.json()                            #создаем переменную с данными в формате json
     daily = json['daily']                        #обращаемся к ежедневным данным
     windspeed = daily['windspeed_10m_max']       #скорость ветра
     dateWeather = daily['time']                  #дата погоды
     tempMax = daily['temperature_2m_max']        #максимальная температура
-    tempMin = daily['temperature_2m_min']  
+    tempMin = daily['temperature_2m_min']        #минимальная температура
     for i in range(7): #выводим данные погоды за 7 дней 
         print("Дата : ", dateWeather[i])
         print("- максимальная скорость ветра: ", windspeed[i], "Км/ч")
