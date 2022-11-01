@@ -2,7 +2,7 @@
 import requests
 openMeteo = "https://api.open-meteo.com/v1/forecast?latitude=55.7558&longitude=37.6176&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max&current_weather=true&timezone=Europe%2FMoscow"
 res = requests.get(openMeteo) # получаем нужные данные с open-meteo.com
-json = res.json() #создаем переменную с данными в формате json
+
 #Взвращается json вида:
 #{
 #'latitude': 52.52,
@@ -26,14 +26,22 @@ json = res.json() #создаем переменную с данными в фо
 #}
     
 
-daily = json['daily']                        #обращаемся к ежедневным данным
-windspeed = daily['windspeed_10m_max']       #скорость ветра
-dateWeather = daily['time']                  #дата погоды
-tempMax = daily['temperature_2m_max']        #максимальная температура
-tempMin = daily['temperature_2m_min']        #минимальная температура
+      #минимальная температура
 
-for i in range(7): #выводим данные погоды за 7 дней 
-    print("Дата : ", dateWeather[i])
-    print("- максимальная скорость ветра: ", windspeed[i], "Км/ч")
-    print("- максимальная температурв в течении суток: ", tempMax[i], "°C")
-    print("- минимальная температурв в течении суток: ", tempMin[i], "°C")
+def weatherShow():   
+    json = res.json() #создаем переменную с данными в формате json
+    daily = json['daily']                        #обращаемся к ежедневным данным
+    windspeed = daily['windspeed_10m_max']       #скорость ветра
+    dateWeather = daily['time']                  #дата погоды
+    tempMax = daily['temperature_2m_max']        #максимальная температура
+    tempMin = daily['temperature_2m_min']  
+    for i in range(7): #выводим данные погоды за 7 дней 
+        print("Дата : ", dateWeather[i])
+        print("- максимальная скорость ветра: ", windspeed[i], "Км/ч")
+        print("- максимальная температурв в течении суток: ", tempMax[i], "°C")
+        print("- минимальная температурв в течении суток: ", tempMin[i], "°C")
+
+if res:
+    weatherShow()
+else:
+    print("Ошибка сервера")
