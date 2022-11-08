@@ -32,7 +32,7 @@ dateWeather = daily['time']                  #дата погоды
 tempMax = daily['temperature_2m_max']        #максимальная температура
 tempMin = daily['temperature_2m_min']        #минимальная температура
 
-for i in range(7): #выводим данные погоды за 7 дней 
+for i in range(7):                          #выводим данные погоды за 7 дней 
     print("Дата : ", dateWeather[i])
     print("- максимальная скорость ветра: ", windspeed[i], "Км/ч")
     print("- максимальная температурв в течении суток: ", tempMax[i], "°C")
