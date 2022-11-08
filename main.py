@@ -30,7 +30,7 @@ res = requests.get(openMeteo) # получаем нужные данные с op
 
     
 def weatherShow():   
-    json = res.json()                            #создаем переменную с данными в формате json
+    json = res.json()                            #создаем переменную с данными в формате Json 
     daily = json['daily']                        #обращаемся к ежедневным данным
     windspeed = daily['windspeed_10m_max']       #скорость ветра
     dateWeather = daily['time']                  #дата погоды
